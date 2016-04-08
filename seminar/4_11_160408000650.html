@@ -12,23 +12,7 @@
   });
     </script>
   </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Yuchi MATSUOKA <br> 松岡 佑知</h1>
-        <p>
-      <a href="http://www.sigmath.es.osaka-u.ac.jp/kano-lab/wp/">Kano/Hamada lab.</a> M1 <br>
-      Graduate School of Engineering Science, Osaka University <br>
-      1-3 Machikaneyama-cho, Toyonaka, Osaka 560-8531 <br>
-      yuchi_m [ at ] icloud.com</p>
-
-
-        <p class="view"><a href="https://github.com/yuchimatsuoka">View My GitHub Profile</a></p>
-        <p class="view"><a href="seminar/seminar.html">Seminar</a></p>
-      </header>
-      <section>
-
-
+ <body>
     <div class="container">
       <div id="markup">
         <article id="content" class="markdown-body">
@@ -37,9 +21,8 @@
 writen by Yuchi MATSUOKA </p>
 <p>Last modified 8, April, 2016
 </div></p>
-テスト段階です．
 <hr>
-<h2>Portmanteu's Lemma(ポートマントの補題)</h2>
+<h2>Portmanteau's Lemma(ポートマントーの補題)</h2>
 <p>任意の確率ベクトル $X_n$ と $X$ に対して以下の7つのstatementは同値である．</p>
 <ol>
 <li>$x \mapsto P(X \leq x)$の任意の連続点において$P(X_n \leq x) \rightarrow P(X\leq x)$.</li>
@@ -82,20 +65,74 @@ $$
 <p>\begin{aligned}
     |Ef(X_n) - Ef_\epsilon (X_n)| &amp;= |\int_{Rk}f-f_\epsilon dP(X_n)| \\
     &amp;= |\int_{I}f-f_\epsilon dP(X_n)|+|\int_{Ic}f-f_\epsilon dP(X_n)| \\
-    &amp;\leq \int_{I}|f-f_\epsilon| dP(X_n)+|\int_{Ic}f dP(X_n)| \\
+    &amp;\leq \int_{I}|f-f_\epsilon| dP(X_n)+|\int_{Ic}f dP(X_n)| \\ 
 \end{aligned}
 ここで，$I$上で$|f - f_\epsilon| \leq \epsilon$であることと，$f \leq 1$であることを用いれば，$|Ef(X_n) - Ef_\epsilon (X_n)| \leq \epsilon + P(X_n \not\in I)$である．$n$を十分大きくとれば，結局$2\epsilon$で抑えられることもわかる．</p>
 <p>二つ目は全く同様にできる．</p>
 <p>三つの不等式を合わせると題意が示せる．</p>
 <p>次に$X$の分布関数が連続でない場合でも大丈夫なことを示さなければならない．
-まず，分布関数の不連続点は高々加算個である．</p>
-続きはまたこんど
-<hr>
-<h2>連続写像の定理</h2>
+まず，分布関数の不連続点は高々加算個である(
+後に示す．)．従って長方形$I$を$P(X \in \delta)=0$となるようにとれる．よって分布関数が不連続であっても同様の議論ができる．</p>
+<p>$(2) \Rightarrow (3)$はリプシッツ連続な関数は連続関数であることより自明.</p>
+<p>$(3) \Rightarrow (5)$を示す．</p>
+<p>任意の開集合$G$に対して，$0\leq f_m \uparrow 1_G$となるようなリプシッツ連続な関数列$f_m$が存在する．たとえば，
+$$
+f_m(x) = \inf{md(x,G^c),1}
+$$
+は1でバウンドされる$m$リプシッツな関数である(後に示す)．</p>
+<p>ここで，$X_n \in G^c$のとき，$f_m(X_n)=0$であるので，
+\begin{aligned}
+    Ef_m(X_n) &amp;\leq 1\cdot P(X_n\in G) \\
+                &amp;= P(X_n\in G).
+\end{aligned}</p>
+<p>よって，
+\begin{aligned} 
+    \liminf P(X_n\in G) &amp;\geq \liminf Ef_m(X_n) \\
+                        &amp;\geq \lim Ef_m(X_n) \\ 
+                        &amp;= Ef_m(X). \ \ (\because (3))
+\end{aligned}</p>
+<p>単調収束定理より，$\lim_{m\rightarrow \infty}Ef_m(X) = E 1_G = P(X\in G)$.</p>
+<p>よって示せた．</p>
+<p>次に，$(5) \Leftrightarrow (6)$. これは補集合をとれば明らか．</p>
+<p>$(5)+(6) \Rightarrow (7)$の証明．</p>
+<p>まず，ボレル集合$B$の内部を$\mathring{B}$, 閉包を$\bar{B}$とかく．内部は開集合，閉包は閉集合であることから(5)及び(6)を用いて，</p>
+<p>\begin{aligned}
+    P(X\in \mathring{B}) \leq \liminf P(X_n\in \mathring{B}) \leq \limsup P(X_n\in \bar{B}) \leq P(X\in \bar{B})
+\end{aligned}
+が成り立つ．</p>
+<p>$P(X\in \delta B)= P(X\in \bar{B})-P(X\in\mathring{B}) = 0$であるとき，上式は全て同じ値をとる．よって$P(X_n \in B) \rightarrow P(X\in B)$.</p>
+<p>次に$(7)\Rightarrow (1)$を示す．</p>
+<p>連続点$x$に対して，$(-\infty,x]$をとると，これはボレル集合であり，$P(X \in \delta (-\infty,x]) = 0$より，(7)が使えて，</p>
+<p>$$P(X_n\leq x)\rightarrow P(X \leq x) $$
+OK.</p>
+<p>$(2) \Rightarrow (4)$.</p>
+<p>$M&gt;0$を任意にとり，$f_M(x) := \inf {f(x),M}$とする．このとき，$f_M$は有界かつ連続であり，$f_M \leq f$. よって任意の$n \in \mathbb{N}$に対して，
+$$E f_M(X_n) \leq Ef(X_n)$$.</p>
+<p>(2)より左辺は$Ef_M(X)$に収束する．よって</p>
+<p>$$E f_M(X) \leq Ef(X_n)$$.</p>
+<p>さらに，$f_M$は$M$に関して単調増加であるので，単調収束定理が使えて，
+$$Ef(X) \leq \liminf Ef(X_n)$$.</p>
+<p>よって示せた．</p>
+<p>$(4) \Rightarrow (2)$.</p>
+<p>$f$は有界かつ連続な関数とする．このとき，$f+||f||_{\infty}$, 及び$||f||_{\infty}-f$は，非負値連続関数である．よって(4)が使えて，</p>
+<p>\begin{aligned}
+    E f(X)+ ||f||_{\infty} &amp;\leq \liminf Ef(X_n) + ||f||_{\infty} \\
+     ||f||_{\infty}-Ef(X) &amp;\leq ||f||_{\infty}-\liminf Ef(X_n) \leq ||f||_{\infty}-\limsup Ef(X_n)
+\end{aligned}</p>
+<p>合わせると，</p>
+<p>\begin{aligned}
+    \limsup Ef(X_n) \leq Ef(X) \leq \liminf Ef(X_n)
+\end{aligned}</p>
+<p>これらは全て等しく，さらに$\liminf Ef(X_n) = Ef(X)$である．</p>
+<p>以上により一通り示せたことになる．</p>
 <hr>
 <h2>Sources</h2>
 <ul>
-<li>A. W. Van Der Vaart, Asymptotic Statistics, Cambridge University Press, 2000</li>
+<li>A. W. Van Der Vaart, <em>Asymptotic Statistics</em>, Cambridge University Press</li>
+</ul>
+<h2>Special Thanks</h2>
+<ul>
+<li>Mr. Ryunosuke TANABE</li>
 </ul>
         </article>
       </div>
