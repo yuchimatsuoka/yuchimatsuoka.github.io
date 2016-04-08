@@ -32,13 +32,13 @@
 
       <div id="markup">
         <article id="content" class="markdown-body">
-          <h1>第１回基礎ゼミ参考資料</h1>
+          <h2>第１回基礎ゼミ参考資料</h2>
 <p><div style="text-align: right;">
 writen by Yuchi MATSUOKA </p>
 <p>Last modified 8, April, 2016
 </div></p>
 <hr>
-<h2>Portmanteau's Lemma(ポートマントーの補題)</h2>
+<h3>Portmanteau's Lemma(ポートマントーの補題)</h3>
 <p>任意の確率ベクトル $X_n$ と $X$ に対して以下の7つのstatementは同値である．</p>
 <ol>
 <li>$x \mapsto P(X \leq x)$の任意の連続点において$P(X_n \leq x) \rightarrow P(X\leq x)$.</li>
@@ -81,7 +81,7 @@ $$
 <p>\begin{aligned}
     |Ef(X_n) - Ef_\epsilon (X_n)| &amp;= |\int_{Rk}f-f_\epsilon dP(X_n)| \\
     &amp;= |\int_{I}f-f_\epsilon dP(X_n)|+|\int_{Ic}f-f_\epsilon dP(X_n)| \\
-    &amp;\leq \int_{I}|f-f_\epsilon| dP(X_n)+|\int_{Ic}f dP(X_n)| \\ 
+    &amp;\leq \int_{I}|f-f_\epsilon| dP(X_n)+|\int_{Ic}f dP(X_n)| \\
 \end{aligned}
 ここで，$I$上で$|f - f_\epsilon| \leq \epsilon$であることと，$f \leq 1$であることを用いれば，$|Ef(X_n) - Ef_\epsilon (X_n)| \leq \epsilon + P(X_n \not\in I)$である．$n$を十分大きくとれば，結局$2\epsilon$で抑えられることもわかる．</p>
 <p>二つ目は全く同様にできる．</p>
@@ -104,7 +104,7 @@ $$
 <p>よって，
 \begin{aligned} 
     \liminf P(X_n\in G) &amp;\geq \liminf Ef_m(X_n) \\
-                        &amp;\geq \lim Ef_m(X_n) \\ 
+                        &amp;\geq \lim Ef_m(X_n) \\
                         &amp;= Ef_m(X). \ \ (\because (3))
 \end{aligned}</p>
 <p>単調収束定理より，$\lim_{m\rightarrow \infty}Ef_m(X) = E 1_G = P(X\in G)$.</p>
@@ -130,10 +130,10 @@ $$E f_M(X_n) \leq Ef(X_n)$$.</p>
 $$Ef(X) \leq \liminf Ef(X_n)$$.</p>
 <p>よって示せた．</p>
 <p>$(4) \Rightarrow (2)$.</p>
-<p>$f$は有界かつ連続な関数とする．このとき，$f+||f||_{\infty}$, 及び$||f||_{\infty}-f$は，非負値連続関数である．よって(4)が使えて，</p>
+<p>$f$は有界かつ連続な関数とする．このとき，$f+||f||_{\infty}$, $||f||_{\infty}-f$は，非負値連続関数である．よって(4)が使えて，</p>
 <p>\begin{aligned}
-    E f(X)+ ||f||_{\infty} &amp;\leq \liminf Ef(X_n) + ||f||_{\infty} \\
-     ||f||_{\infty}-Ef(X) &amp;\leq ||f||_{\infty}-\liminf Ef(X_n) \leq ||f||_{\infty}-\limsup Ef(X_n)
+    \liminf Ef(X_n) + ||f||_{\infty} &amp;\geq E f(X)+ ||f||_{\infty} \
+     \geq ||f||_{\infty}-Ef(X) &amp;\leq ||f||_{\infty}-\liminf Ef(X_n) \leq ||f||_{\infty}-\limsup Ef(X_n)
 \end{aligned}</p>
 <p>合わせると，</p>
 <p>\begin{aligned}
@@ -142,11 +142,65 @@ $$Ef(X) \leq \liminf Ef(X_n)$$.</p>
 <p>これらは全て等しく，さらに$\liminf Ef(X_n) = Ef(X)$である．</p>
 <p>以上により一通り示せたことになる．</p>
 <hr>
-<h2>Sources</h2>
+<p>次の結果は基本的であるが非常に有用であり，ポートマントーの補題が証明の中で用いられる．</p>
+<h3>Continuous mapping theorem (連続写像の定理).</h3>
+<p>$g: \mathbb{R}^k \mapsto \mathbb{R}^m$は$P(X\in C)=1$となるような集合$C$の任意の点で連続であるとする．このとき，</p>
+<ol>
+<li>$X_n \rightsquigarrow X$ $\Rightarrow$ $g(X_n) \rightsquigarrow g(X)$,</li>
+<li>$X_n \xrightarrow{P} X$ $\Rightarrow$ $g(X_n) \xrightarrow{P} g(X)$,</li>
+<li>$X_n \xrightarrow{as} X$ $\Rightarrow$ $g(X_n) \xrightarrow{as} g(X)$</li>
+</ol>
+<p>が成り立つ．</p>
+<h4>証明</h4>
+<p>(1).</p>
+<p>まず，任意の閉集合$F$に対して，以下が成り立つ．</p>
+<p>$$
+    g^{-1}(F) \subset \overline{g^{-1}(F)} \subset g^{-1}(F) \cup C^c
+$$</p>
+<p>一つ目の包含関係は明らか．二つ目を示す．任意の$F$に対して，$x_m \rightarrow x$かつ$g(x_m)\in F$を満たすような関数列${x_m}$を考える．</p>
+<p>ここで，定義より$x_m \in g^{-1}(F)$. さらに閉包は閉集合であることより$x \in \overline{g^{-1}(F)}$.</p>
+<p>このとき$x$には次の二通りの場合がある．</p>
+<ul>
+<li>$x\in C$の場合<ul>
+<li>このとき，$x$は$g$の連続点である．$g(x_k) \rightarrow g(x)$である． さらに$F$は閉集合であるので$g(x)\in F$．よって$x\in g^{-1}(F)$.</li>
+</ul>
+</li>
+<li>$x\in C^c$の場合</li>
+</ul>
+<p>よって二つ目の包含関係が示せた．</p>
+<p>\begin{eqnarray}
+    \limsup P(g(X_n)\in F) &amp;\leq \limsup P(X_n\in \overline{g^{-1}(F)}) \ \ \mbox{(自明)} \\
+    &amp;\leq  P(X\in \overline{g^{-1}(F)}) \ \ \mbox{(ポートマント(6))} \\
+    &amp;=  P(X\in g^{-1}(F)) \ \ \mbox{($P(X\in C^c)=0$)} \\
+    &amp;=  P(g(X)\in F). \ \ \mbox{   }
+\end{eqnarray}</p>
+<p>よってポートマントー(6)から，題意が示せた．</p>
+<p>(2).</p>
+<p>任意に$\epsilon$を固定する．各$\delta&gt;0$に対して，$B_{\delta}$を次のように定義する．</p>
+<p>\begin{eqnarray}
+    B_{\delta} :={x\in \mathbb{R}^k: \exists y\in \mathbb{R}^k,d(x,y)&lt;\delta, d(g(x),g(y))&gt;\epsilon  }.
+\end{eqnarray}</p>
+<p>このとき，$X\not\in B_{\delta}$かつ$d(g(X_n),g(X))&gt;\epsilon$であるとすれば，$d(X_n,X)\geq \delta$ということになる．よって，</p>
+<p>\begin{eqnarray}
+    P(d(X_n,X)\geq \delta) \leq P(X\in B_{\delta}) + P(d(X_n,X)\geq \delta).
+\end{eqnarray}</p>
+<p>あとは右辺が$n\rightarrow 0$で0に収束することをいえばよい．2項目は$X_n$が$X$に確率収束することよりOK. 1項目は$g$が$C$で連続であることより，$B_{\delta} \cap C \downarrow 0$より$\delta \downarrow 0$で0に収束する．以上により示せた．</p>
+<p>(3). 明らか．</p>
+<hr>
+<h3>確率変数$X$がtight(緊密)であるとは</h3>
+<h3>Prokorov's Theorem (プロホロフの定理)</h3>
+<p>$X_n$は$\mathbb{R}^k$上の確率ベクトルであるとする．このとき以下が成り立つ．</p>
+<ol>
+<li>$X_n \rightsquigarrow X$ $\Rightarrow$ ${X_n}$はuniformly tight.</li>
+<li>${X_n}$がuniformly tight　$\Rightarrow$　ある$X$に対して，$X_{n_j} \rightsquigarrow X(j \rightarrow \infty)$となるような確率ベクトル列が存在する．</li>
+</ol>
+<h4>証明</h4>
+<hr>
+<h3>Sources</h3>
 <ul>
 <li>A. W. Van Der Vaart, <em>Asymptotic Statistics</em>, Cambridge University Press</li>
 </ul>
-<h2>Special Thanks</h2>
+<h3>Special Thanks</h3>
 <ul>
 <li>Mr. Ryunosuke TANABE</li>
 </ul>
