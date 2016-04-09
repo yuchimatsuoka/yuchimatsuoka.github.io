@@ -102,12 +102,12 @@ $$
 <p>よって，$X$の分布を連続とした場合は示せた．</p>
 <p>次に$X$の分布関数が連続でない場合でも大丈夫なことを示さなければならない．
 まず，分布関数の不連続点は高々加算個である(
-後に示す．)．従って長方形$I$を$P(X \in \delta)=0$となるようにとれる．よって分布関数が不連続であっても同様の議論ができる．</p>
+<a href="4_11sub1.html">Frodaの定理</a>)．従って長方形$I$を$P(X \in \delta)=0$となるようにとれる．よって分布関数が不連続であっても同様の議論ができる．</p>
 <p>$(2) \Rightarrow (3)$はリプシッツ連続な関数は連続関数であることより自明.</p>
 <p>$(3) \Rightarrow (5)$を示す．</p>
 <p>任意の開集合$G$に対して，$0\leq f_m \uparrow 1_G$となるようなリプシッツ連続な関数列$f_m$が存在する．たとえば，
 $$
-f_m(x) = \inf{md(x,G^c),1}
+f_m(x) = \inf \{md(x,G^c),1\}
 $$
 は1でバウンドされる$m$リプシッツな関数である(後に示す)．</p>
 <p>ここで，$X_n \in G^c$のとき，$f_m(X_n)=0$であるので，
@@ -118,8 +118,7 @@ $$
 <p>よって，
 \begin{eqnarray}  <br>
     \liminf P(X_n\in G) &amp;\geq&amp; \liminf Ef_m(X_n) \\
-                        &amp;\geq&amp; \lim Ef_m(X_n) \\
-                        &amp;=&amp; Ef_m(X). \ \ (\because (3))
+                        &amp;\geq&amp; Ef_m(X). \ \ (\because (3))
 \end{eqnarray}</p>
 <p>単調収束定理より，$\lim_{m\rightarrow \infty}Ef_m(X) = E 1_G = P(X\in G)$.</p>
 <p>よって示せた．</p>
