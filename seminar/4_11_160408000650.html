@@ -31,11 +31,11 @@
     <div class="container">
 
       <div id="markup">
-        <article id="content" class="markdown-body">
+      <article id="content" class="markdown-body">
           <h2>第１回基礎ゼミ参考資料</h2>
 <p><div style="text-align: right;">
 writen by Yuchi MATSUOKA </p>
-<p>Last modified 8, April, 2016
+<p>Last modified 　9, April, 2016
 </div></p>
 <hr>
 <h3>Portmanteau's Lemma(ポートマントーの補題)</h3>
@@ -61,7 +61,7 @@ $$
 P(X_n \in I) \rightarrow P(X \in I)
 $$
 が明らかに成り立つ．そこで$P(X \not\in I)\leq \epsilon$を満たすように十分大きくコンパクトな長方形$I$をとる．すると連続関数$f$はコンパクト集合$I$上で一様連続であるという有名事実が使える．</p>
-<p>$f$が各$I_j$内で高々$\epsilon$しか異ならないように長方形$I$を$I = \cup_j I_j$と分割することができる．これは$f$が$I$上一様連続であることより明らか．</p>
+<p>$f$が$I$上一様連続であるので，$f$が各$I_j$内で高々$\epsilon$しか異ならないような長方形$I$の分割$\cup_j I_j$を考えることができる．</p>
 <p>次に期待値の収束を示すために3つの不等式を用意する．これらを用いて三角不等式を作ることで題意は示せる．</p>
 <p>まず，各$I_j$から点$x_j$をとり，$f_\epsilon = \sum_j f(x_j) 1_{I_j}$と定義する．すると
 \begin{aligned}
@@ -71,21 +71,35 @@ $$
 \end{aligned}
 ここで$f$の値域が$[-1,1]$であるとしても一般性を失わない．
 これらを用いて以下の三つが成り立つ．
-\begin{aligned}
-    |Ef(X_n) - Ef_\epsilon (X_n)| &amp;\leq \epsilon + P(X_n \not\in I),  \\
-    |Ef(X) - Ef_\epsilon (X_n)| &amp;\leq \epsilon + P(X \not\in I) &lt; \epsilon, \\
-    |Ef_\epsilon(X) - Ef_\epsilon (X_n)| &amp;\leq \sum_j|P(X_n \in I_j)-P(X \in I_j)||f(x_j)| \rightarrow 0. 
-\end{aligned}</p>
+\begin{eqnarray}
+    |Ef(X_n) - Ef_\epsilon (X_n)| &amp;\leq&amp; \epsilon + P(X_n \not\in I),  \\
+    |Ef(X) - Ef_\epsilon (X_n)| &amp;\leq&amp; \epsilon + P(X \not\in I) &lt; \epsilon, \\
+    |Ef_\epsilon(X) - Ef_\epsilon (X_n)| &amp;\leq&amp; \sum_j|P(X_n \in I_j)-P(X \in I_j)||f(x_j)| \rightarrow 0. 
+\end{eqnarray}</p>
 <p>まずこれら３つを証明する．
 一つ目．</p>
-<p>\begin{aligned}
-    |Ef(X_n) - Ef_\epsilon (X_n)| &amp;= |\int_{Rk}f-f_\epsilon dP(X_n)| \\
-    &amp;= |\int_{I}f-f_\epsilon dP(X_n)|+|\int_{Ic}f-f_\epsilon dP(X_n)| \\
-    &amp;\leq \int_{I}|f-f_\epsilon| dP(X_n)+|\int_{Ic}f dP(X_n)| \\
-\end{aligned}
-ここで，$I$上で$|f - f_\epsilon| \leq \epsilon$であることと，$f \leq 1$であることを用いれば，$|Ef(X_n) - Ef_\epsilon (X_n)| \leq \epsilon + P(X_n \not\in I)$である．$n$を十分大きくとれば，結局$2\epsilon$で抑えられることもわかる．</p>
+<p>\begin{eqnarray}
+    |Ef(X_n) - Ef_\epsilon (X_n)| &amp;=&amp; |\int_{Rk}f-f_\epsilon dP(X_n)| \\
+    &amp;\leq&amp; |\int_{I}f-f_\epsilon dP(X_n)|+|\int_{Ic}f-f_\epsilon dP(X_n)| \\
+    &amp;\leq&amp; \int_{I}|f-f_\epsilon| dP(X_n)+|\int_{Ic}f dP(X_n)| \\ 
+\end{eqnarray}</p>
+<p>ここで，$I$上で$|f - f_\epsilon| \leq \epsilon$であることと，$f \leq 1$であることを用いれば，$|Ef(X_n) - Ef_\epsilon (X_n)| \leq \epsilon + P(X_n \not\in I)$である．$n$を十分大きくとれば，結局$2\epsilon$で抑えられることもわかる．</p>
 <p>二つ目は全く同様にできる．</p>
-<p>三つの不等式を合わせると題意が示せる．</p>
+<p>三つの不等式は，</p>
+<p>\begin{eqnarray}
+    |Ef_\epsilon(X) - Ef_\epsilon (X_n)| &amp;=&amp; |\int_{Rk} \sum_j f(x_j)1_{I_j}dP(X) - \int_{Rk} \sum_j f(x_j)1_{I_j}dP(X_n)| \\
+    &amp;=&amp; |\sum_j f(x_j) \int_{Rk} 1_{I_j}dP(X) - \sum_j f(x_j)\int_{Rk} 1_{I_j}dP(X_n)| \\
+    &amp;=&amp; |\sum_j f(x_j) P(X\in I_j) - \sum_j f(x_j)P(X_n \in I_j)| \\
+    &amp;\leq&amp; \sum_j |P(X\in I_j) -P(X_n\in I_j)||f(x_j)| \\
+    &amp;\rightarrow&amp; 0.
+\end{eqnarray}</p>
+<p>結局，</p>
+<p>\begin{eqnarray}
+    |Ef(X_n) - Ef(X)| &amp;=&amp; |Ef(X_n)-Ef_{\epsilon}(X_n)+ Ef_{\epsilon}(X_n) -Ef_{\epsilon}(X) + Ef_{\epsilon}(X) - Ef(X)| \\
+    &amp;\leq&amp; |Ef(X_n)-Ef_{\epsilon}(X_n)|+ |Ef_{\epsilon}(X_n) -Ef_{\epsilon}(X)| +| Ef_{\epsilon}(X) - Ef(X)| \\
+    &amp;\leq &amp; 5\epsilon.
+\end{eqnarray}</p>
+<p>よって，$X$の分布を連続とした場合は示せた．</p>
 <p>次に$X$の分布関数が連続でない場合でも大丈夫なことを示さなければならない．
 まず，分布関数の不連続点は高々加算個である(
 後に示す．)．従って長方形$I$を$P(X \in \delta)=0$となるようにとれる．よって分布関数が不連続であっても同様の議論ができる．</p>
@@ -97,24 +111,24 @@ f_m(x) = \inf{md(x,G^c),1}
 $$
 は1でバウンドされる$m$リプシッツな関数である(後に示す)．</p>
 <p>ここで，$X_n \in G^c$のとき，$f_m(X_n)=0$であるので，
-\begin{aligned}
-    Ef_m(X_n) &amp;\leq 1\cdot P(X_n\in G) \\
-                &amp;= P(X_n\in G).
-\end{aligned}</p>
+\begin{eqnarray}
+    Ef_m(X_n) &amp;\leq&amp; 1\cdot P(X_n\in G) \\
+                &amp;=&amp; P(X_n\in G).
+\end{eqnarray}</p>
 <p>よって，
-\begin{aligned} 
-    \liminf P(X_n\in G) &amp;\geq \liminf Ef_m(X_n) \\
-                        &amp;\geq \lim Ef_m(X_n) \\
-                        &amp;= Ef_m(X). \ \ (\because (3))
-\end{aligned}</p>
+\begin{eqnarray}  <br>
+    \liminf P(X_n\in G) &amp;\geq&amp; \liminf Ef_m(X_n) \\
+                        &amp;\geq&amp; \lim Ef_m(X_n) \\
+                        &amp;=&amp; Ef_m(X). \ \ (\because (3))
+\end{eqnarray}</p>
 <p>単調収束定理より，$\lim_{m\rightarrow \infty}Ef_m(X) = E 1_G = P(X\in G)$.</p>
 <p>よって示せた．</p>
 <p>次に，$(5) \Leftrightarrow (6)$. これは補集合をとれば明らか．</p>
 <p>$(5)+(6) \Rightarrow (7)$の証明．</p>
 <p>まず，ボレル集合$B$の内部を$\mathring{B}$, 閉包を$\bar{B}$とかく．内部は開集合，閉包は閉集合であることから(5)及び(6)を用いて，</p>
-<p>\begin{aligned}
+<p>\begin{eqnarray}
     P(X\in \mathring{B}) \leq \liminf P(X_n\in \mathring{B}) \leq \limsup P(X_n\in \bar{B}) \leq P(X\in \bar{B})
-\end{aligned}
+\end{eqnarray}
 が成り立つ．</p>
 <p>$P(X\in \delta B)= P(X\in \bar{B})-P(X\in\mathring{B}) = 0$であるとき，上式は全て同じ値をとる．よって$P(X_n \in B) \rightarrow P(X\in B)$.</p>
 <p>次に$(7)\Rightarrow (1)$を示す．</p>
@@ -131,14 +145,14 @@ $$Ef(X) \leq \liminf Ef(X_n)$$.</p>
 <p>よって示せた．</p>
 <p>$(4) \Rightarrow (2)$.</p>
 <p>$f$は有界かつ連続な関数とする．このとき，$f+||f||_{\infty}$, $||f||_{\infty}-f$は，非負値連続関数である．よって(4)が使えて，</p>
-<p>\begin{aligned}
-    \liminf Ef(X_n) + ||f||_{\infty} &amp;\geq E f(X)+ ||f||_{\infty} \
-     \geq ||f||_{\infty}-Ef(X) &amp;\leq ||f||_{\infty}-\liminf Ef(X_n) \leq ||f||_{\infty}-\limsup Ef(X_n)
-\end{aligned}</p>
+<p>\begin{eqnarray}
+    \liminf Ef(X_n) + ||f||_{\infty} &amp;\geq&amp; E f(X)+ ||f||_{\infty} \\
+     ||f||_{\infty}-Ef(X) &amp;\leq&amp; ||f||_{\infty}-\liminf Ef(X_n) \leq ||f||_{\infty}-\limsup Ef(X_n)
+\end{eqnarray}</p>
 <p>合わせると，</p>
-<p>\begin{aligned}
+<p>\begin{eqnarray}
     \limsup Ef(X_n) \leq Ef(X) \leq \liminf Ef(X_n)
-\end{aligned}</p>
+\end{eqnarray}</p>
 <p>これらは全て等しく，さらに$\liminf Ef(X_n) = Ef(X)$である．</p>
 <p>以上により一通り示せたことになる．</p>
 <hr>
@@ -169,10 +183,10 @@ $$</p>
 </ul>
 <p>よって二つ目の包含関係が示せた．</p>
 <p>\begin{eqnarray}
-    \limsup P(g(X_n)\in F) &amp;\leq \limsup P(X_n\in \overline{g^{-1}(F)}) \ \ \mbox{(自明)} \\
-    &amp;\leq  P(X\in \overline{g^{-1}(F)}) \ \ \mbox{(ポートマント(6))} \\
-    &amp;=  P(X\in g^{-1}(F)) \ \ \mbox{($P(X\in C^c)=0$)} \\
-    &amp;=  P(g(X)\in F). \ \ \mbox{   }
+    \limsup P(g(X_n)\in F) &amp;\leq&amp; \limsup P(X_n\in \overline{g^{-1}(F)}) \ \ \mbox{(自明)} \\
+    &amp;\leq&amp;  P(X\in \overline{g^{-1}(F)}) \ \ \mbox{(ポートマント(6))} \\
+    &amp;=&amp; P(X\in g^{-1}(F)) \ \ \mbox{($P(X\in C^c)=0$)} \\\
+    &amp;=&amp; P(g(X)\in F).
 \end{eqnarray}</p>
 <p>よってポートマントー(6)から，題意が示せた．</p>
 <p>(2).</p>
@@ -188,13 +202,18 @@ $$</p>
 <p>(3). 明らか．</p>
 <hr>
 <h3>確率変数$X$がtight(緊密)であるとは</h3>
+<p>任意の$\epsilon&gt;0$に対して，$P(||X||&gt;M)&lt;\epsilon$を満たすような定数$M$が存在するとき，確率ペクトル$X$は<strong>tight(緊密)</strong>であるという．さらに，確率ベクトル集合${ X_{\alpha}: \alpha \in A}$で，全ての$X_\alpha$に対して，同じ$M$を選べるとき，${ X_{\alpha}: \alpha \in A}$は<strong>uniformly tight(一様緊密)</strong>であるという．すなわち任意の$\epsilon$に対して</p>
+<p>\begin{eqnarray}
+    \sup_{\alpha}P(||X_{\alpha}||&gt;M)&lt;\epsilon
+\end{eqnarray}
+を満たすような$M$が存在するということである．（確率有界, bounded in probabilityともいう）</p>
 <h3>Prokorov's Theorem (プロホロフの定理)</h3>
 <p>$X_n$は$\mathbb{R}^k$上の確率ベクトルであるとする．このとき以下が成り立つ．</p>
 <ol>
 <li>$X_n \rightsquigarrow X$ $\Rightarrow$ ${X_n}$はuniformly tight.</li>
 <li>${X_n}$がuniformly tight　$\Rightarrow$　ある$X$に対して，$X_{n_j} \rightsquigarrow X(j \rightarrow \infty)$となるような確率ベクトル列が存在する．</li>
 </ol>
-<h4>証明</h4>
+<p><strong>この定理の証明は次回．</strong></p>
 <hr>
 <h3>Sources</h3>
 <ul>
