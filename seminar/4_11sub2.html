@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>4_11.mdown—/Users/yuchimatsuoka/Google ドライブ/Seminar/M1basic</title>
+    <link rel="stylesheet" href="../stylesheets/styles.css">
+    <link rel="stylesheet" href="../stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+       MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(', '\\)']]}
+  });
+    </script>
+  </head>
+ <body>
+         <div class="wrapper">
+       <header>
+         <h1>Yuchi MATSUOKA <br> 松岡 佑知</h1>
+         <p>
+       <a href="http://www.sigmath.es.osaka-u.ac.jp/kano-lab/wp/">Kano/Hamada lab.</a> M1 <br>
+       Graduate School of Engineering Science, Osaka University <br>
+       1-3 Machikaneyama-cho, Toyonaka, Osaka 560-8531 <br>
+       yuchi_m [ at ] icloud.com</p>
+ 
+ 
+         <p class="view"><a href="https://github.com/yuchimatsuoka">View My GitHub Profile</a></p>
+         <p class="view"><a href="seminar.html">Seminar</a></p>
+       </header>
+       <section>
+
+    <div class="container">
+
+      <div id="markup">
+       <article id="content" class="markdown-body">
+          <h3>命題</h3>
+<p>任意の開集合$G$に対して，$f_m(x)=\inf \{md(x\, G^c),1 \}$はm-リプシッツ連続な関数である．</p>
+<h4>証明</h4>
+<p>示したいのは，
+任意の$x,y \in \mathbb{R}^k$に対して，
+$$
+    |f_m(x)-f_m(y)|\leq md(x,y)
+$$
+となることである．$x,y$として</p>
+<ol>
+<li>$x,y \in G^c$, </li>
+<li>$x,y\in G$,</li>
+<li>$x\in G,y\in G^c$</li>
+</ol>
+<p>の3通りの場合を考える．</p>
+<p>1.の場合，$f_m(x) = 0$かつ$f_m(y)=0$で明らかに成り立つ．</p>
+<p>2.の場合.</p>
+<p>まず，$d(x,G^c)$，$d(y,G^c)$を与える$G^c$の点をそれぞれ$G_x,G_y$と書くことにする．</p>
+<p>すると次の２つの場合がある．</p>
+<p>\begin{eqnarray}
+    \begin{cases}
+        &amp; d(x,G_x)\leq d(y,G_y) \leq d(x,y)+d(y,G_y) \\
+        &amp; d(y,G_y)\leq d(x,G_x) \leq d(x,y)+d(x,G_x) 
+    \end{cases}
+\end{eqnarray}</p>
+<p>合わせると
+\begin{eqnarray}
+    |d(x,G_x) - d(y,G_y)| \leq d(x,y)
+\end{eqnarray}</p>
+<p>となることが分かる．</p>
+<p>ここで，次の3通りの場合を考える．</p>
+<p>ⅰ. $md(x,G^c)&lt;1$, $md(y,G^c)&lt;1$  　</p>
+<p>ⅱ. $md(x,G^c)&lt;1$, $md(y,G^c)\geq 1$  </p>
+<p>ⅲ. $md(x,G^c)\geq 1$, $md(y,G^c)\geq 1$</p>
+<p>まず，ⅰ.のとき</p>
+<p>\begin{eqnarray}
+    |f_m(x)-f_m(y)| &amp;=&amp; |md(x,G_x) - md(y,G_y| \\
+                    &amp;\leq&amp; md(x,y).
+\end{eqnarray}</p>
+<p>次に，ⅱ.のとき，</p>
+<p>\begin{eqnarray}
+    |f_m(x)-f_m(y)| &amp;=&amp; |md(x,G_x) - 1| \\
+                    &amp;\leq&amp; |md(x,G_x) - md(y,G_y)| \\
+                    &amp;\leq&amp; md(x,y).
+\end{eqnarray}</p>
+<p>最後にⅲ.のとき，
+\begin{eqnarray}
+    |f_m(x)-f_m(y)| = 1-1 =0.
+\end{eqnarray}</p>
+<p>よっていずれの場合も成り立つ．</p>
+<p>最後に3.のときを示す．</p>
+<p>$md(x,G^c)\geq 1$のとき，
+\begin{eqnarray}
+    |f_m(x)-f_m(y)| &amp;=&amp; |1 - 0| \\
+                    &amp;\leq&amp; |md(x,G^c)| \\
+                    &amp;=&amp; |md(x,G_x)| \\
+                    &amp;\leq&amp; |md(x,G_x) + md(G_x,y)| \\
+                    &amp;=&amp; md(x,y). 
+\end{eqnarray}</p>
+<p>と成り立つ．各等式，不等式は図を描いてみれば分かりやすい．</p>
+<p>$md(x,G^c)&lt; 1$のとき，
+\begin{eqnarray}
+    |f_m(x)-f_m(y)| &amp;=&amp; |md(x,G^c)| \\
+                    &amp;\leq&amp; md(x,y)
+\end{eqnarray}</p>
+<p>これも図を描いてみれば一目瞭然．</p>
+<p>以上により3.の場合もm-リプシッツ連続であることが分かり，全ての場合で示せた．</p>
+<hr>
+<h3>Special Thanks</h3>
+<p>Mr. Ryunosuke TANABE</p>
+        </article>
+      </div>
+    </div>
+  </body>
+</html>

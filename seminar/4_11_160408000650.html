@@ -35,7 +35,7 @@
           <h2>第１回基礎ゼミ参考資料</h2>
 <p><div style="text-align: right;">
 writen by Yuchi MATSUOKA </p>
-<p>Last modified 　10, April, 2016
+<p>Last modified 　11, April, 2016
 </div></p>
 <hr>
 
@@ -131,7 +131,7 @@ $$
 $$
 f_m(x) = \inf \{md(x,G^c),1\}
 $$
-は1でバウンドされる$m$リプシッツな関数である(後に示す)．</p>
+は1でバウンドされる$m$リプシッツな関数である(<a href="4_11sub2.html">証明</a>)．</p>
 <p>ここで，$X_n \in G^c$のとき，$f_m(X_n)=0$であるので，
 \begin{eqnarray}
     Ef_m(X_n) &amp;\leq&amp; 1\cdot P(X_n\in G) \\
@@ -157,7 +157,7 @@ $$
 <p>$$P(X_n\leq x)\rightarrow P(X \leq x) $$
 OK.</p>
 <p>$(2) \Rightarrow (4)$.</p>
-<p>$M&gt;0$を任意にとり，$f_M(x) := \inf {f(x),M}$とする．このとき，$f_M$は有界かつ連続であり，$f_M \leq f$. よって任意の$n \in \mathbb{N}$に対して，
+<p>$M&gt;0$を任意にとり，$f_M(x) := \inf \{f(x),M\}$とする．このとき，$f_M$は有界かつ連続であり，$f_M \leq f$. よって任意の$n \in \mathbb{N}$に対して，
 $$E f_M(X_n) \leq Ef(X_n)$$.</p>
 <p>(2)より左辺は$Ef_M(X)$に収束する．よって</p>
 <p>$$E f_M(X) \leq Ef(X_n)$$.</p>
@@ -213,22 +213,23 @@ $$</p>
 <p>(2).</p>
 <p>任意に$\epsilon$を固定する．各$\delta&gt;0$に対して，$B_{\delta}$を次のように定義する．</p>
 <p>\begin{eqnarray}
-    B_{\delta} :={x\in \mathbb{R}^k: \exists y\in \mathbb{R}^k,d(x,y)&lt;\delta, d(g(x),g(y))&gt;\epsilon  }.
+    B_{\delta} :=\{x\in \mathbb{R}^k: \exists y\in \mathbb{R}^k,d(x,y)&lt;\delta, d(g(x),g(y))&gt;\epsilon  \}.
 \end{eqnarray}</p>
+
 <p>このとき，$X\not\in B_{\delta}$かつ$d(g(X_n),g(X))&gt;\epsilon$であるとすれば，$d(X_n,X)\geq \delta$ということになる．よって，</p>
 <p>\begin{eqnarray}
-    P(d(X_n,X)\geq \delta) \leq P(X\in B_{\delta}) + P(d(X_n,X)\geq \delta).
+    P(d(g(X_n),g(X))\geq \epsilon) \leq P(X\in B_{\delta}) + P(d(X_n,X)\geq \delta).
 \end{eqnarray}</p>
-<p>あとは右辺が$n\rightarrow 0$で0に収束することをいえばよい．2項目は$X_n$が$X$に確率収束することよりOK. 1項目は$g$が$C$で連続であることより，$B_{\delta} \cap C \downarrow 0$より$\delta \downarrow 0$で0に収束する．以上により示せた．</p>
+<p>あとは右辺が$n\rightarrow 0$で0に収束することをいえばよい．2項目は$X_n$が$X$に確率収束することよりOK. 1項目は$g$が$C$で連続であることより，$B_{\delta} \cap C \downarrow \phi$なので$\delta \downarrow 0$で0に収束する．以上により示せた．</p>
 <p>(3). 明らか．</p>
 <hr>
 <h3>確率変数$X$がtight(緊密)であるとは</h3>
-<p>任意の$\epsilon&gt;0$に対して，$P(||X||&gt;M)&lt;\epsilon$を満たすような定数$M$が存在するとき，確率ペクトル$X$は<strong>tight(緊密)</strong>であるという．さらに，確率ベクトル集合${ X_{\alpha}: \alpha \in A}$で，全ての$X_\alpha$に対して，同じ$M$を選べるとき，${ X_{\alpha}: \alpha \in A}$は<strong>uniformly tight(一様緊密)</strong>であるという．すなわち任意の$\epsilon$に対して</p>
+<p>任意の$\epsilon&gt;0$に対して，$P(||X||&gt;M)&lt;\epsilon$を満たすような定数$M$が存在するとき，確率ペクトル$X$は<strong>tight(緊密)</strong>であるという．さらに，確率ベクトル集合$\{ X_{\alpha}: \alpha \in A\}$で，全ての$X_\alpha$に対して，同じ$M$を選べるとき，$\{ X_{\alpha}: \alpha \in A\}$は<strong>uniformly tight(一様緊密)</strong>であるという．すなわち任意の$\epsilon$に対して</p>
 <p>\begin{eqnarray}
     \sup_{\alpha}P(||X_{\alpha}||&gt;M)&lt;\epsilon
 \end{eqnarray}
 を満たすような$M$が存在するということである．（確率有界, bounded in probabilityともいう）</p>
-<h3>Prokorov's Theorem (プロホロフの定理)</h3>
+<h3>Prohorov's Theorem (プロホロフの定理)</h3>
 <p>$X_n$は$\mathbb{R}^k$上の確率ベクトルであるとする．このとき以下が成り立つ．</p>
 <ol>
 <li>$X_n \rightsquigarrow X$ $\Rightarrow$ ${X_n}$はuniformly tight.</li>

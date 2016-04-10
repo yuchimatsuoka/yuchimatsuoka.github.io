@@ -1,0 +1,34 @@
+###様々な収束の定義
+
+まず，$\mathbb{R}^k$上の確率ベクトル$X=(X_1,...,X_k)$を考える．さらにその分布関数を$x\mapsto P(X\leq x)$と定義する．
+
+$X_n$が$X$に**分布収束**するとは，$x\mapsto P(X\leq x)$が連続となるような任意の$x$に対して，
+$$
+	P(X_n \leq x) \rightarrow P(X\leq x)
+$$
+
+が成り立つことをいう．$X_n \rightsquigarrow X$と書く．
+
+$X_n$が$X$に**確率収束**するとは，任意の$\epsilon >0$に対して，
+
+$$
+	P(d(X_n,X)>\epsilon) \rightarrow 0
+$$
+
+が成り立つことをいう．$X_n \xrightarrow{P} X$と書く．
+
+
+$X_n$が$X$に**概収束**するとは，
+$$
+	P(\lim d(X_n,X)= 0) =1
+$$
+
+が成り立つことをいう．$X_n \xrightarrow{as} X$と書く．
+
+強さでいうと，概収束$\geq$ 確率収束 $\geq$ 分布収束である（2章の後半で示される）．
+
+
+__Ex2.1__ 後に示すことの紹介なので省略．
+
+
+- - - 
