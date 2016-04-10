@@ -160,21 +160,21 @@ OK.</p>
 <p>$M&gt;0$を任意にとり，$f_M(x) := \inf \{f(x),M\}$とする．このとき，$f_M$は有界かつ連続であり，$f_M \leq f$. よって任意の$n \in \mathbb{N}$に対して，
 $$E f_M(X_n) \leq Ef(X_n)$$.</p>
 <p>(2)より左辺は$Ef_M(X)$に収束する．よって</p>
-<p>$$E f_M(X) \leq Ef(X_n)$$.</p>
+<p>$$E f_M(X) \leq  \liminf Ef(X_n)$$.</p>
 <p>さらに，$f_M$は$M$に関して単調増加であるので，単調収束定理が使えて，
 $$Ef(X) \leq \liminf Ef(X_n)$$.</p>
 <p>よって示せた．</p>
 <p>$(4) \Rightarrow (2)$.</p>
-<p>$f$は有界かつ連続な関数とする．このとき，$f+||f||_{\infty}$, $||f||_{\infty}-f$は，非負値連続関数である．よって(4)が使えて，</p>
+<p>$f$は有界かつ連続な関数とする．このとき，$f+||f||_{\infty}$, $||f||_{\infty}-f$は，非負値連続関数である．ただし，$||f||_{\infty} = \sup_{x\in \mathbb{R}^k}|f(x)|$である．よって(4)が使えて，</p>
 <p>\begin{eqnarray}
-    \liminf Ef(X_n) + ||f||_{\infty} &amp;\geq&amp; E f(X)+ ||f||_{\infty} \\
-     ||f||_{\infty}-Ef(X) &amp;\leq&amp; ||f||_{\infty}-\liminf Ef(X_n) \leq ||f||_{\infty}-\limsup Ef(X_n)
+    \liminf [Ef(X_n) + ||f||_{\infty}] &amp;\geq&amp; E f(X)+ ||f||_{\infty} \\
+    \liminf [||f||_{\infty}- Ef(X_n)] &amp;\geq&amp; ||f||_{\infty} - Ef(X). 
 \end{eqnarray}</p>
 <p>合わせると，</p>
 <p>\begin{eqnarray}
     \limsup Ef(X_n) \leq Ef(X) \leq \liminf Ef(X_n)
 \end{eqnarray}</p>
-<p>これらは全て等しく，さらに$\liminf Ef(X_n) = Ef(X)$である．</p>
+<p>これらは全て等しく，$\lim Ef(X_n) = Ef(X)$であり，(2)が成り立つことが分かる．</p>
 <p>以上により一通り示せたことになる．</p>
 <hr>
 <p>次の結果は基本的であるが非常に有用であり，ポートマントーの補題が証明の中で用いられる．</p>
