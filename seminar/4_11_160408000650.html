@@ -35,9 +35,31 @@
           <h2>第１回基礎ゼミ参考資料</h2>
 <p><div style="text-align: right;">
 writen by Yuchi MATSUOKA </p>
-<p>Last modified 　9, April, 2016
+<p>Last modified 　10, April, 2016
 </div></p>
 <hr>
+
+          <h3>様々な収束の定義</h3>
+<p>まず，$\mathbb{R}^k$上の確率ベクトル$X=(X_1,...,X_k)$を考える．さらにその分布関数を$x\mapsto P(X\leq x)$と定義する．</p>
+<p>$X_n$が$X$に<strong>分布収束</strong>するとは，$x\mapsto P(X\leq x)$が連続となるような任意の$x$に対して，
+$$
+    P(X_n \leq x) \rightarrow P(X\leq x)
+$$</p>
+<p>が成り立つことをいう．$X_n \rightsquigarrow X$と書く．</p>
+<p>$X_n$が$X$に<strong>確率収束</strong>するとは，任意の$\epsilon &gt;0$に対して，</p>
+<p>$$
+    P(d(X_n,X)&gt;\epsilon) \rightarrow 0
+$$</p>
+<p>が成り立つことをいう．$X_n \xrightarrow{P} X$と書く．</p>
+<p>$X_n$が$X$に<strong>概収束</strong>するとは，
+$$
+    P(\lim d(X_n,X)= 0) =1
+$$</p>
+<p>が成り立つことをいう．$X_n \xrightarrow{as} X$と書く．</p>
+<p>強さでいうと，概収束$\geq$ 確率収束 $\geq$ 分布収束である（2章の後半で示される）．</p>
+<p><strong>Ex2.1</strong> 後に示すことの紹介なので省略．</p>
+<hr>
+
 <h3>Portmanteau's Lemma(ポートマントーの補題)</h3>
 <p>任意の確率ベクトル $X_n$ と $X$ に対して以下の7つのstatementは同値である．</p>
 <ol>
