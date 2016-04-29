@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>4_11.mdown—/Users/yuchimatsuoka/Google ドライブ/Seminar/M1basic</title>
+    <link rel="stylesheet" href="../stylesheets/styles.css">
+    <link rel="stylesheet" href="../stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+       MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+    </script>
+  </head>
+ <body>
+         <div class="wrapper">
+       <header>
+         <h1>Yuchi MATSUOKA <br> 松岡 佑知</h1>
+         <p>
+       <a href="http://www.sigmath.es.osaka-u.ac.jp/kano-lab/wp/">Kano/Hamada lab.</a> M1 <br>
+       Graduate School of Engineering Science, Osaka University <br>
+       1-3 Machikaneyama-cho, Toyonaka, Osaka 560-8531 <br>
+       yuchi_m [ at ] icloud.com</p>
+ 
+ 
+         <p class="view"><a href="https://github.com/yuchimatsuoka">View My GitHub Profile</a></p>
+         <p class="view"><a href="seminar.html">Seminar</a></p>
+       </header>
+       <section>
+
+    <div class="container">
+
+      <div id="markup">
+        <article id="content" class="markdown-body">
+          <h2>第５回基礎ゼミ参考資料</h2>
+<p><div style="text-align: right;">
+writen by Yuchi MATSUOKA </p>
+<p>Last modified 　30, April, 2016
+</div></p>
+<hr>  
+<h3>Characteristic Functions</h3>
+<h3>定義（Characteristic Functions）</h3>
+<p>確率ベクトル$X$の特性関数を以下で定義する．
+\begin{eqnarray}
+    t \mapsto Ee^{it^TX}, \ \ t\in \mathbb{R}^k.
+\end{eqnarray</em>}</p>
+<h3>Levy's continuity theorem</h3>
+<p>$X_n$, $X$は$\mathbb{R}^k$上の確率ベクトルとする．このとき，以下の２つは同値である．</p>
+<ol>
+<li>$X_n \rightsquigarrow X$.</li>
+<li>任意の$t\in \mathbb{R}^k$に対して，$E e^{it^TX_n}\rightarrow Ee^{it^TX}$.</li>
+</ol>
+<p>さらに，各点で$E e^{it^TX_n}$が$0$で連続な関数$\phi(t)$に収束するとき，$\phi$は$X_n \rightsquigarrow X$となるような$X$の特性関数である．</p>
+<p>(Proof)
+まず，$(1)\Rightarrow (2)$を示す．各$t$に対して，$x \mapsto e^{it^Tx}$は明らかに連続であり，$|e^{it^Tx}| = \sqrt{\cos^2t^Tx + \sin^2t^Tx}=1$より有界である．</p>
+<p>よってポートマントーの補題(ii)より，$E e^{it^TX_n}\rightarrow Ee^{it^TX}$となり示せた．</p>
+<p>次に$(2)\Rightarrow (1)$を示す．これは後半のstoatementを示せば十分である．なぜなら，特性関数は$0$で連続であり，$E e^{it^TX_n}$の収束先が$Ee^{it^TX}$であるとすれば，$X_n \rightsquigarrow X$が成り立つからである．</p>
+<p>まず，$X_n$は確率有界，i.e
+\begin{eqnarray}
+    \sup_n P(||X_n|| &gt; \epsilon) &lt; M
+\end{eqnarray}
+が成り立つと仮定する．（この仮定が外せることはのちに示す）．Prohorovの補題より${X_n}$のある部分列${X_{n_k}}$が与えられたとき，さらにその部分列${X_{n_{k_j}}}$を選んであるベクトル$Y$に弱収束するように出来る．このとき，先ほど示した結果より$Ee^{it^TX_{n_{k_j}}} \rightarrow Ee^{it^TY}$となる．</p>
+<p>極限の一意性により，$\phi(t) = Ee^{it^TY}$である．もし部分列の取り方によって，弱収束極限として$Z$が現れたとしても，$\phi(t) = Ee^{it^TZ}$である．</p>
+<p>特性関数により分布は一意に定まるので（Lemma 2.15で示す），$X_n$の任意の部分列は$Y$に弱収束する．</p>
+<p>よって$X_n$自身も$Y$に弱収束する．</p>
+<p>次に$X_n$の確率有界性は$\phi(t)$が$0$で連続であることから導けることを示す．</p>
+<p>$X_n$は一次元であるとして示す（確率ベクトルの各成分が確率有界であれば確率ベクトル自体も確率有界である）．任まず$x,\delta &gt; 0$に対して，</p>
+<p>\begin{eqnarray}
+    1_{|\delta x| &gt; 2}\leq 2(1 - \frac{\sin (\delta x)}{\delta x}) = \frac{1}{\delta}\int_{-\delta}^{\delta} (1 - \cos(tx)))dt
+\end{eqnarray</em>}
+が成り立つ．</p>
+<p>$x$を$X_n$で置き換えて期待値をとると，</p>
+<p>\begin{eqnarray}
+    P(|X_n| &gt; \frac{2}{\delta}) &amp;\leq&amp; \frac{1}{\delta}E\int_{-\delta}^{\delta} (1- \cos (tX_n))dt \\
+                        &amp;=&amp; \frac{1}{\delta}E\int_{-\delta}^{\delta} Re(1 - e^{itX_n})dt \\
+                        &amp;=&amp; \frac{1}{\delta}\int_{-\delta}^{\delta} Re(1 - Ee^{itX_n})dt \ \ \ \mbox{(フビニの定理)}\\
+                        &amp;\rightarrow &amp; \frac{1}{\delta}\int_{-\delta}^{\delta} Re(1 - \phi(t))dt. \ \ \ \mbox{(優収束定理)}
+\end{eqnarray</em>}</p>
+<p>フビニの定理は非積分関数が明らかに可積分であることより使える．優収束定理も優関数として$g=2$などを考えれば使えることが分かる．</p>
+<p>$\phi$は$0$で連続であるので，任意の$\epsilon$に対して，ある$\delta&gt;0$が存在して，$|t| &lt;\delta$で$|1-\phi(t)|&lt;\epsilon$となる．この$\delta$に対して
+\begin{eqnarray}
+    \frac{1}{\delta}\int_{-\delta}^{\delta} Re(1 - \phi(t))dt &lt; 2\epsilon.
+\end{eqnarray</em>}</p>
+<p>よって，$n$を十分大きくとれば\begin{eqnarray}
+    P(|X_n| &gt;\frac{2}{\delta}) \leq 2\epsilon.
+\end{eqnarray</em>}</p>
+<p>よって$X_n$は一様緊密である．</p>
+<h3>Example(Normar distribution)</h3>
+<p>$N_{k}(\mu,\Sigma)$の特性関数は <br>
+\begin{eqnarray}
+    t \mapsto e^{it^T\mu - \frac{1}{2}t^T\Sigma t}
+\end{eqnarray</em>}
+である．</p>
+<p>(Proof)
+まず，一変量標準正規分布$N(0,1)$の特性関数が，$e^{-\frac{t^2}{2}}$となることを示す．</p>
+<p>$X \sim N(0,1)$とすると
+\begin{eqnarray}
+    E e^{itX} = \int_{-\infty}^{\infty} e^{itx}\frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}x^2}dx = e^{-\frac{1}{2}t^2} \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty} e^{-\frac{1}{2}(x-it)^{2}}dx
+\end{eqnarray</em>}
+ここで，$R&gt;0$として以下の４つの線分からなる閉曲線$C_R$を考える．
+\begin{eqnarray}
+    C_{R,1}:-R\rightarrow R, \ \ C_{R,2}:R\rightarrow R-it, \ \ C_{R,3}:R-it\rightarrow -R-it, \ \ C_{R,4}:-R-it \rightarrow -R.
+\end{eqnarray</em>}</p>
+<p>ここで，$e^{-\frac{z^2}{2}}$は複素平面$C$で正則より，コーシーの積分定理から$\int_{C_R}e^{-\frac{z^2}{2}}dz=0$.</p>
+<p>一方，
+\begin{eqnarray}
+    \int_{C_R}e^{-\frac{z^2}{2}}dz = \sum_{n=1}^{4}\int_{C_{R,n}}e^{-\frac{z^2}{2}}dz
+\end{eqnarray</em>}
+である．</p>
+<p>各経路における積分をそれぞれ計算する．</p>
+<p>まず，$C_{R,1}$では，
+\begin{eqnarray}
+    \int_{C_{R,1}}e^{-\frac{z^2}{2}}dz = \int_{-R}^{R}e^{-\frac{x^2}{2}}dx \rightarrow \int_{-\infty}^{\infty}e^{-\frac{x^2}{2}}dx = \sqrt{2\pi}.
+\end{eqnarray</em>}</p>
+<p>$C_{R,2}$では，$z=R+iy$として$(dz=idy)$，</p>
+<p>\begin{eqnarray}
+    |\int_{C_{R,2}}e^{-\frac{z^2}{2}}dz | &amp;=&amp;|\int_{0}^{-t}e^{-\frac{(R+iy)^2}{2}}idy| \leq \int_{0}^{|t|}|e^{-\frac{(R^2-y^2)}{2}-iRy}i|dy \
+    &amp;=&amp;  \int_{0}^{|t|}e^{-\frac{(R^2-y^2)}{2}}dy \leq |t| e^{-\frac{(R^2-t^2)}{2}} \rightarrow 0.
+\end{eqnarray</em>}</p>
+<p>$C_{R,4}$は, $z=-R+iy$として$C_{R,2}$と同様に計算すれば$R\rightarrow \infty$で$0$に収束することが分かる．</p>
+<p>$C_{R,3}$は，$z=x-it$とすると，$dz = dx$より
+\begin{eqnarray}
+    \int_{C_{R,3}}e^{-\frac{z^2}{2}}dz = \int_{R}^{-R}e^{-\frac{1}{2}(x-it)^2}dx = - \int_{-R}^{R}e^{-\frac{1}{2}(x-it)^2}dx \rightarrow  - \int_{-\infty}^{\infty}e^{-\frac{1}{2}(x-it)^2}dx
+\end{eqnarray</em>}</p>
+<p>合わせると$\sqrt{2\pi} - \int_{-\infty}^{\infty}e^{-\frac{1}{2}(x-it)^2}dx = 0$.</p>
+<p>よって，
+\begin{eqnarray}
+    E e^{itX} = e^{-\frac{1}{2}t^2} \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty} e^{-\frac{1}{2}(x-it)^{2}}dx = e^{-\frac{1}{2}t^2} \frac{1}{\sqrt{2\pi}}\sqrt{2\pi} = e^{-\frac{1}{2}t^2} 
+\end{eqnarray</em>}
+となることが示せた．</p>
+<p>次に，正規分布$N(\mu,\sigma^2)$の特性関数は
+\begin{eqnarray}
+    e^{i\mu t - \frac{1}{2}\sigma^2t^2}
+\end{eqnarray</em>}
+となることを示す．</p>
+<p>$X \sim N(\mu,\sigma^2)$とする．$Z=\frac{X - \mu}{\sigma}$と定義すると，$Z$は標準正規分布に従う．
+よって，$X=\sigma Z+ \mu$より，この特性関数は
+\begin{eqnarray}
+    E e^{itX} = E e^{it(\sigma Z + \mu)} = e^{it\mu}Ee^{it\sigma Z}= e^{it\mu}e^{-\frac{1}{2}(\sigma t)^2} = e^{i\mu t -\frac{1}{2}\sigma^2t^2}.
+\end{eqnarray</em>}</p>
+<p>最後に多変量正規分布$N_{k}(\mu,\Sigma)$の特性関数が$e^{it^T\mu-\frac{1}{2}t^T\Sigma t}$であることを示す．</p>
+<p>まず$Z \sim N_k(\mu,I)$して，$X:=\Sigma^{1/2}Z+\mu$と定義すれば$X\sim N_{k}(\mu,\Sigma)$である．確率ベクトルの特性関数の定義より</p>
+<p>\begin{eqnarray}
+    E e^{it^T X} &amp;=&amp; E e^{it^T(\Sigma^{1/2}Z+\mu)} \
+            &amp;=&amp; e^{it^T\mu} E e^{it^T \Sigma^{1/2}Z} .
+\end{eqnarray</em>}</p>
+<p>ここで，$t^T \Sigma^{1/2}Z$は</p>
+<p>\begin{eqnarray}
+    E[t^T \Sigma^{1/2}Z] &amp;=&amp; t^T \Sigma^{1/2}E[Z] = 0. \
+    V[t^T \Sigma^{1/2}Z] &amp;=&amp; t^T \Sigma^{1/2} V[Z] (t^T \Sigma^{1/2})^T \
+                    &amp;=&amp; t^T \Sigma^{1/2} \Sigma^{1/2} t \
+                    &amp;=&amp; t^T \Sigma t.
+\end{eqnarray</em>}</p>
+<p>より$N(0,t^T \Sigma t)$に従う．よって</p>
+<p>\begin{eqnarray}
+    E e^{it^T X} &amp;=&amp; e^{it^T\mu}e^{-\frac{1}{2}t^T\Sigma t} = e^{it^T\mu-\frac{1}{2}t^T\Sigma t}.
+\end{eqnarray</em>}</p>
+<hr>
+<h3>Lemma 2.15</h3>
+<p>$\mathbb{R}^k$上の確率ベクトル$X$, $Y$について以下の２つは同値である．</p>
+<ol>
+<li>$X$, $Y$の分布が等しい．</li>
+<li>任意の$t\in \mathbb{R}^k$で$Ee^{it^TX} = Ee^{it^TY}$が成り立つ．</li>
+</ol>
+<p>(Proof)
+任意の$\sigma &gt;0, y \in \mathbb{R}^k$に対して，
+\begin{eqnarray}
+    \int e^{-it^Ty}e^{-\frac{1}{2}t^Tt\sigma^2}Ee^{it^TX}dt &amp;=&amp; E\int e^{ it^T(X-y) } e^{-\frac{1}{2}t^Tt\sigma^2}  dt \ \ \ \mbox{($\because$フビニの定理)} \nonumber \\
+    &amp;=&amp; E \int \exp [ -\frac{1}{2}\sigma^2 {t^Tt -\frac{2i}{\sigma^2}t^T(X-y)    }            ] dt \nonumber \\
+    &amp;=&amp; E \int \exp [ -\frac{1}{2}\sigma^2 ||t -\frac{i}{\sigma^2}(X-y)    ||^2 -\frac{||X-y||^2}{2\sigma^2}            ]dt \nonumber \
+    &amp;=&amp; \frac{(2\pi)^{k/2}}{\sigma^k}E e^{-\frac{1}{2}(X-y)^T(X-y)/\sigma^2}.
+\end{eqnarray}</p>
+<p>実はこの最右辺は$(2\pi)^k$と$p_{X+\sigma Z}(y)$の密度を掛けたものになっている．このことを以下で示す．</p>
+<p>まず，１行目でフビニの定理が使えることは以下のように$X$の密度関数を$f$として
+\begin{eqnarray}
+    \int \int |e^{-it^T(x-y)}e^{-\frac{1}{2}t^Tt\sigma^2}f(x) |dx dt &amp;=&amp; \int 
+    \int  e^{-\frac{1}{2}t^Tt\sigma^2}  f(x) dxdt = \frac{(2\pi)^{k/2}}{\sigma^k}.
+\end{eqnarray</em>}
+と可積分であることより分かる．</p>
+<p>ここで，$X$と独立な$Z \sim N_{k}(0,I)$について，$X+ \sigma Z$の従う分布$p_{X+\sigma Z}(y)$を考える．畳み込み積分により，</p>
+<p>\begin{eqnarray}
+    p_{X+\sigma Z}(y) &amp;=&amp; \int f_X(x) f_Z(\frac{y-x}{\sigma})\frac{1}{\sigma^k}dx \
+    &amp;=&amp; \int f_X(x) \frac{1}{ (2\pi)^{k/2}}  \exp[-\frac{1}{2\sigma^2}||y-x||^2  ] \frac{1}{\sigma^k} dx .
+\end{eqnarray</em>}</p>
+<p>$(2\pi)^k$と$p_{X+\sigma Z}(y)$の密度を掛けたものになっていることが分かる．よって$X$と$Y$の特性関数が等しいとき，$X+\sigma Z$と$Y+\sigma Z$の密度は等しくなり，任意の$\sigma &gt;0$で分布は等しいことが分かる．</p>
+<p>スラツキーの補題より，$X+\sigma Z \rightsquigarrow X$(as $\sigma \downarrow 0$). 同様に，$Y+\sigma Z \rightsquigarrow X$(as $\sigma \downarrow 0$)．
+任意の$\sigma$で$X+\sigma Z$と$Y+\sigma Z$の分布は等しいので弱収束先の$X$, $Y$の分布も等しい．</p>
+
+<h3>Sources</h3>
+<ul>
+<li>A. W. Van Der Vaart, <em>Asymptotic Statistics</em>, Cambridge University Press</li>
+</ul>
+
+        </article>
+      </div>
+    </div>
+  </body>
+</html>
