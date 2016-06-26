@@ -37,7 +37,7 @@
                 <h2>M1基礎ゼミ 6/20 資料</h2>
 <p><div style="text-align: right;">
 writen by Yuchi MATSUOKA </p>
-<p>Last modified 　30, April, 2016
+<p>Last modified 　20, June, 2016
 </div></p>
 <hr>  
 
@@ -65,9 +65,8 @@ writen by Yuchi MATSUOKA </p>
 \end{eqnarray}
 と書ける．</p>
 <p>$\mathbb{P}nf$が漸近正規的かつ$e^{-1}$が点$P{\theta_0}f$で微分可能であるとすれば，デルタ法</p>
-<p>$\phi:\mathbb{R}^k \mapsto \mathbb{R}^m$で$\phi$は$\theta$で微分可能とする．$T_n$は$\phi$の定義域内で値をとる確率変数であり，$T_n \in \mathbb{R}^k$である．\par
-もし$r_n(T_n -\theta) \rightsquigarrow T(as\ r_n \to \infty)$ならば，$r_n(\phi(T_n) - \phi(\theta)) \rightsquigarrow \phi'\theta(T)$が成り立つ．更に，$r_n(\phi(T_n)-\phi(\theta)) - \phi'\theta(r_n(T_n -\theta))$は$0$に確率収束する．</p>
-<p>により，右辺が正規分布に収束することが示せる．ここで，定理の中の$\phi'\theta : h \mapsto \phi'\theta(h)$は
+<p>$\phi:\mathbb{R}^k \mapsto \mathbb{R}^m$で$\phi$は$\theta$で微分可能とする．$T_n$は$\phi$の定義域内で値をとる確率変数であり，$T_n \in \mathbb{R}^k$である．もし$r_n(T_n -\theta) \rightsquigarrow T(as\ r_n \to \infty)$ならば，$r_n(\phi(T_n) - \phi(\theta)) \rightsquigarrow \phi'_{\theta}(T)$が成り立つ．更に，$r_n(\phi(T_n)-\phi(\theta)) - \phi'_{\theta}(r_n(T_n -\theta))$は$0$に確率収束する．</p>
+<p>により，右辺が正規分布に収束することが示せる．ここで，定理の中の$\phi'_{\theta} : h \mapsto \phi'_{\theta}(h)$は
 \begin{equation}
     \phi'_\theta(h) =
     \begin{pmatrix}
@@ -84,7 +83,7 @@ writen by Yuchi MATSUOKA </p>
 <p>であり，もし$\phi'_\theta$が$\theta$上連続ならば，$\phi$は連続微分可能であるというのであった．
 また，ベクトル$h$を定数倍する場合，以下が成り立つこともみた．
 \begin{eqnarray}
-    \phi'\theta(rh) &=&
+    \phi'_{\theta}(rh) &=&
     \begin{pmatrix}
         \frac{\partial \phi_1}{\partial x_1}(\theta) \cdots \frac{\partial \phi_1}{\partial x_k}(\theta) \\
         \vdots \ddots \vdots \\
@@ -97,13 +96,13 @@ rh_k
 \end{pmatrix}
 \
 &=&
-r\phi'\theta(h).
+r\phi'_{\theta}(h).
 \end{eqnarray}</p>
 <h5>Remark.</h5>
 <p>逆関数定理より，$e(\theta_0)$における$e^{-1}$の導関数は$\theta_0$における$e$の導関数の逆像$e_{\theta_0}^{'-1}$である（もちろんこれが成り立つためにはいくつか条件がいる）．モーメント法において，$e^{-1}$が常に陽にかけるとは限らないので，$e$の微分可能性から$e^{-1}$の微分可能性を確かめた方が便利な場合もある．</p>
 <p>以上の話を定理としてまとめ，証明する．</p>
 <h4>定理</h4>
-<p>開集合$\Theta \subset \mathbb{R}^{k}$上で$e(\theta) = P_{\theta}f$は全単射かつ，$\theta_0$において連続微分可能（$e_{\theta_0}'$が存在して，$\theta_0$で連続なこと）であり，$e_{\theta_0}'$が特異でない（フルランクである）とする．さらに$P_{\theta_0}||f||^2 &lt;\infty$を仮定する．このとき，モーメント推定量$\hat{\theta}_n$は$n\rightarrow \infty$で確率１で存在して，
+<p>開集合$\Theta \subset \mathbb{R}^{k}$上で$e(\theta) = P_{\theta}f$は単射かつ，$\theta_0$において連続微分可能（$e_{\theta_0}'$が存在して，$\theta_0$で連続なこと）であり，$e_{\theta_0}'$が特異でない（フルランクである）とする．さらに$P_{\theta_0}||f||^2 &lt;\infty$を仮定する．このとき，モーメント推定量$\hat{\theta}_n$は$n\rightarrow \infty$で確率１で存在して，
     \begin{eqnarray}
         \sqrt{n}(\hat{\theta}n - \theta_0) \rightsquigarrow N(0,e{\theta_0}^{'-1} P_{\theta_0} f f^T (e_{\theta_0}^{'-1})^T)
     \end{eqnarray}
