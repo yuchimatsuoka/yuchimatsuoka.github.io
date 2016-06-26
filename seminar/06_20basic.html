@@ -33,29 +33,29 @@
           <h3>モーメント推定量の漸近正規性 / Yuchi Matsuoka</h3>
 <h4>モーメント法</h4>
 <p>$X_1,...,X_n$を分布$P_{\theta}$からのサンプルとする($\theta \in \Theta$). モーメント法による$\theta$の推定量は以下の連立方程式の解である．</p>
-<p>\begin{eqnarray<em>}
+<p>\begin{eqnarray}
     &&\frac{1}{n}\sum_{i=1}^{n}f_j(X_i) = E_{\theta}f_j(X), \ \ \j=1,...,k, \\
     &&\mbox{for given functions } f_1,...,f_k.
-\end{eqnarray</em>}</p>
+\end{eqnarray}</p>
 <p>パラメータ$\theta$が$k$次元ベクトルのとき，通常$f_j(x) = x^j$が用いられる．</p>
 <p>モーメント推定量は”最良な”推定量とは限らないが，ある仮定のもとで収束レート$\sqrt{n}$の漸近正規性を持つことがデルタ法により示せる．$f=(f_1,...,f_k)$と書くことにし，$e: \Theta \mapsto \mathbb{R}^k$を
-\begin{eqnarray<em>}
+\begin{eqnarray}
     e(\theta) = P_{\theta}f
-\end{eqnarray</em>}
+\end{eqnarray}
 とする．ただし，$P_{\theta}$はベクトル値の期待値である．するとモーメント推定量$\hat{\theta}_n$は以下の連立方程式の解である．</p>
-<p>\begin{eqnarray<em>}
-    \mathbb{P}<em>nf \equiv \frac{1}{n}\sum</em>{i=1}^{n}f(X_i) = e(\theta) \equiv P_{\theta}f.
-\end{eqnarray</em>}</p>
+<p>\begin{eqnarray}
+    \mathbb{P}nf \equiv \frac{1}{n}\sum{i=1}^{n}f(X_i) = e(\theta) \equiv P_{\theta}f.
+\end{eqnarray}</p>
 <p>モーメント推定量が存在するためには$\mathbb{P}_nf$が関数$e$のrangeに含まれていなければならない．さらに$e$が単射であることを仮定する．このとき，モーメント推定量は$\hat{\theta}_n= e^{-1}(\mathbb{P}_nf)$で一意に定まり，
-\begin{eqnarray<em>}
-    \sqrt{n}(\hat{\theta}<em>n-\theta_0) = \sqrt{n}(e^{-1}(\mathbb{P}_nf) - e^{-1}(P</em>{\theta_0}f))
-\end{eqnarray</em>}
+\begin{eqnarray}
+    \sqrt{n}(\hat{\theta}n-\theta_0) = \sqrt{n}(e^{-1}(\mathbb{P}_nf) - e^{-1}(P{\theta_0}f))
+\end{eqnarray}
 と書ける．</p>
-<p>$\mathbb{P}<em>nf$が漸近正規的かつ$e^{-1}$が点$P</em>{\theta_0}f$で微分可能であるとすれば，デルタ法</p>
+<p>$\mathbb{P}nf$が漸近正規的かつ$e^{-1}$が点$P{\theta_0}f$で微分可能であるとすれば，デルタ法</p>
 <p>$\phi:\mathbb{R}^k \mapsto \mathbb{R}^m$で$\phi$は$\theta$で微分可能とする．$T_n$は$\phi$の定義域内で値をとる確率変数であり，$T_n \in \mathbb{R}^k$である．\par
-もし$r_n(T_n -\theta) \rightsquigarrow T(as\ r_n \to \infty)$ならば，$r_n(\phi(T_n) - \phi(\theta)) \rightsquigarrow \phi'<em>\theta(T)$が成り立つ．更に，$r_n(\phi(T_n)-\phi(\theta)) - \phi'</em>\theta(r_n(T_n -\theta))$は$0$に確率収束する．</p>
-<p>により，右辺が正規分布に収束することが示せる．ここで，定理の中の$\phi'<em>\theta : h \mapsto \phi'</em>\theta(h)$は
-\begin{equation<em>}
+もし$r_n(T_n -\theta) \rightsquigarrow T(as\ r_n \to \infty)$ならば，$r_n(\phi(T_n) - \phi(\theta)) \rightsquigarrow \phi'\theta(T)$が成り立つ．更に，$r_n(\phi(T_n)-\phi(\theta)) - \phi'\theta(r_n(T_n -\theta))$は$0$に確率収束する．</p>
+<p>により，右辺が正規分布に収束することが示せる．ここで，定理の中の$\phi'\theta : h \mapsto \phi'\theta(h)$は
+\begin{equation}
     \phi'_\theta(h) =
     \begin{pmatrix}
         \frac{\partial \phi_1}{\partial x_1}(\theta) \cdots \frac{\partial \phi_1}{\partial x_k}(\theta) \\
@@ -67,11 +67,11 @@
         \vdots \\
         h_k
     \end{pmatrix}
-\end{equation</em>}</p>
+\end{equation}</p>
 <p>であり，もし$\phi'_\theta$が$\theta$上連続ならば，$\phi$は連続微分可能であるというのであった．
 また，ベクトル$h$を定数倍する場合，以下が成り立つこともみた．
-\begin{eqnarray<em>}
-    \phi'<em>\theta(rh) &=&
+\begin{eqnarray}
+    \phi'\theta(rh) &=&
     \begin{pmatrix}
         \frac{\partial \phi_1}{\partial x_1}(\theta) \cdots \frac{\partial \phi_1}{\partial x_k}(\theta) \\
         \vdots \ddots \vdots \\
@@ -84,30 +84,30 @@ rh_k
 \end{pmatrix}
 \
 &=&
-r\phi'</em>\theta(h).
-\end{eqnarray</em>}</p>
+r\phi'\theta(h).
+\end{eqnarray}</p>
 <h5>Remark.</h5>
 <p>逆関数定理より，$e(\theta_0)$における$e^{-1}$の導関数は$\theta_0$における$e$の導関数の逆像$e_{\theta_0}^{'-1}$である（もちろんこれが成り立つためにはいくつか条件がいる）．モーメント法において，$e^{-1}$が常に陽にかけるとは限らないので，$e$の微分可能性から$e^{-1}$の微分可能性を確かめた方が便利な場合もある．</p>
 <p>以上の話を定理としてまとめ，証明する．</p>
 <h4>定理</h4>
 <p>開集合$\Theta \subset \mathbb{R}^{k}$上で$e(\theta) = P_{\theta}f$は全単射かつ，$\theta_0$において連続微分可能（$e_{\theta_0}'$が存在して，$\theta_0$で連続なこと）であり，$e_{\theta_0}'$が特異でない（フルランクである）とする．さらに$P_{\theta_0}||f||^2 &lt;\infty$を仮定する．このとき，モーメント推定量$\hat{\theta}_n$は$n\rightarrow \infty$で確率１で存在して，
-    \begin{eqnarray<em>}
-        \sqrt{n}(\hat{\theta}<em>n - \theta_0) \rightsquigarrow N(0,e</em>{\theta_0}^{'-1} P_{\theta_0} f f^T (e_{\theta_0}^{'-1})^T)
-    \end{eqnarray</em>}
+    \begin{eqnarray}
+        \sqrt{n}(\hat{\theta}n - \theta_0) \rightsquigarrow N(0,e{\theta_0}^{'-1} P_{\theta_0} f f^T (e_{\theta_0}^{'-1})^T)
+    \end{eqnarray}
     が成り立つ．</p>
 <p>注: $P_{\theta_0} f f^T$は$f_1(X),...f_k(X)$の共分散行列とする．</p>
 <h5>証明</h5>
 <p>まず，$\theta_0$において連続微分可能より，その近傍でも微分可能であることが分かる．さらに$\theta \mapsto e_{\theta}'$の$\theta_0$における連続性と$e_{\theta_0}'$が特異でないことより$\theta_0$の近傍でも$e_{\theta}'$は特異でない．よって逆関数定理より，$e: U \mapsto V$は微分可能な全単射写像であり，逆像$e^{-1}: V\mapsto U$も微分可能であるような，$\theta_0$の開近傍$U$と$P_{\theta_0}f$の開近傍$V$が存在する．</p>
 <p>大数の法則より，$n\rightarrow \infty$で確率１で$\mathbb{P}_nf \in V$となることから，モーメント推定量$\hat{\theta}_n = e^{-1}(\mathbb{P}_n f)$は極限において確率１で存在する．</p>
-<p>中心極限定理により，$\sqrt{n}(\mathbb{P}<em>n f - P</em>{\theta_0}f) \rightsquigarrow N(0,  P_{\theta_0} f f^T)$が成り立つ．よって，デルタ法を用いると
-    \begin{eqnarray<em>}
-        \sqrt{n}(\hat{\theta}<em>n - \theta_0) = \sqrt{n}(e^{-1}(\mathbb{P}_nf) - e^{-1}(P</em>{\theta_0}f)) \rightsquigarrow  e_{\theta_0}^{'-1}(N(0,  P_{\theta_0} f f^T))
-    \end{eqnarray</em>}
+<p>中心極限定理により，$\sqrt{n}(\mathbb{P}n f - P{\theta_0}f) \rightsquigarrow N(0,  P_{\theta_0} f f^T)$が成り立つ．よって，デルタ法を用いると
+    \begin{eqnarray}
+        \sqrt{n}(\hat{\theta}n - \theta_0) = \sqrt{n}(e^{-1}(\mathbb{P}_nf) - e^{-1}(P{\theta_0}f)) \rightsquigarrow  e_{\theta_0}^{'-1}(N(0,  P_{\theta_0} f f^T))
+    \end{eqnarray}
     である．
     よって定理の主張
-    \begin{eqnarray<em>}
-        \sqrt{n}(\hat{\theta}<em>n - \theta_0) \rightsquigarrow N(0,e</em>{\theta_0}^{'-1} P_{\theta_0} f f^T (e_{\theta_0}^{'-1})^T)
-    \end{eqnarray</em>}
+    \begin{eqnarray}
+        \sqrt{n}(\hat{\theta}n - \theta_0) \rightsquigarrow N(0,e{\theta_0}^{'-1} P_{\theta_0} f f^T (e_{\theta_0}^{'-1})^T)
+    \end{eqnarray}
     が示せた．</p>
 <p>以下で逆関数定理が使えることを確認するため２つ補題を示す．詳しくは述べないが，１つ目の補題は第25章で述べられるセミパラメトリックモデルで現れるような無限次元パラメータの場合に容易に拡張できる．</p>
 <h4>補題</h4>
@@ -115,64 +115,64 @@ r\phi'</em>\theta(h).
 <h5>証明</h5>
 <p>示したいことを確認しておく．$\eta = e(\theta_0)$，$\Delta h = e^{-1} (\eta + h) - e^{-1}(\eta)$とかくことにする．
     $e^{-1}$が$e(\theta_0)$で微分可能であることを示すには，
-    \begin{eqnarray<em>}
+    \begin{eqnarray}
         \Delta h = e_{\theta_0}'^{-1}(h) + o(||h||).\ \ (h \rightarrow 0).
-    \end{eqnarray</em>}</p>
+    \end{eqnarray}</p>
 <p>を示せばよい．以下，上式を示していく．$e^{-1}$は$\eta$で連続より，$h \rightarrow 0$のとき，$\Delta h \rightarrow 0$である．よって</p>
-<p>\begin{eqnarray<em>}
+<p>\begin{eqnarray}
         \eta + h = e e^{-1} (\eta + h) = e(\Delta h+ \theta_0) = e(\theta_0) + e_{\theta_0}' (\Delta h) + o(||\Delta h||). \ \ (\mbox{as } h \rightarrow 0.)
-    \end{eqnarray</em>}
+    \end{eqnarray}
     最後の等号では$e$が$\theta_0$で微分可能であることから$\theta_0$回りのテーラー展開を用いた．$e(\theta_0) = \eta$であったので上の方程式を変形して，
-    \begin{eqnarray<em>}
+    \begin{eqnarray}
         e_{\theta_0}' (\Delta h) = h + o(||\Delta h ||). \ \ (h\rightarrow 0)
-    \end{eqnarray</em>}
+    \end{eqnarray}
     が得られる．これと，$e_{\theta_0}'$の逆写像の連続性より
-    \begin{eqnarray<em>}
+    \begin{eqnarray}
         \Delta h = e_{\theta_0}'^{-1}(h) + o(||\Delta h||).\ \ (h \rightarrow 0).
-    \end{eqnarray</em>}
+    \end{eqnarray}
     特に，
-    \begin{eqnarray<em>}
+    \begin{eqnarray}
         ||\Delta h ||(1+o(1)) \leq ||e_{\theta_0}'^{-1}(h) || =O(||h||)
-    \end{eqnarray</em>}
+    \end{eqnarray}
     であるから，
-    \begin{eqnarray<em>}
+    \begin{eqnarray}
         \Delta h &amp;=&amp; e_{\theta_0}'^{-1}(h) + o(||\Delta h||(1+o(1)))\
 &amp;=&amp; e_{\theta_0}'^{-1}(h) + o(O(||h||))\
 &amp;=&amp; e_{\theta_0}'^{-1}(h) + o(||h||).\ \ (h \rightarrow 0)
-    \end{eqnarray</em>}
+    \end{eqnarray}
     が成立し，これより，
-    \begin{eqnarray<em>}
+    \begin{eqnarray}
         \Delta h = e_{\theta_0}'^{-1}(h) + o(||h||).\ \ (h \rightarrow 0).
-    \end{eqnarray</em>}
+    \end{eqnarray}
     であり，目標の式が得られた．</p>
 <h4>補題</h4>
 <p>$e : \Theta \mapsto \mathbb{R}^k$は$\theta_0$の近傍で定義されており微分可能であるとする．さらに$\theta_0$では連続微分可能であり，非特異な導関数を持つとする．このとき，$e$は$\theta_0$の任意の十分小さな開近傍$U$を開集合$V$への写像し，$e^{-1}:V \mapsto U$はwell-definedであり，連続である．</p>
 <h5>証明</h5>
 <p>$e$が$\theta_0$で連続微分可能という仮定から
-    \begin{eqnarray<em>}
+    \begin{eqnarray}
         e_{\theta}' \rightarrow e_{\theta_0}' =:A^{-1}, \ \ (\theta \rightarrow \theta_0).
-    \end{eqnarray</em>}
+    \end{eqnarray}
     よって$\theta_0$の近傍$U$を十分小さくとれば，任意の$\theta \in U$で$||I - A e_{\theta}'|| \leq \frac{1}{2}$となるようにできる．$V = e(U)$から任意に$\eta_1 = e(\theta_1)(\theta_1 \in U)$をとり固定する．次に$\overline{\mbox{ball}}(\theta_1,\epsilon)\subset U$となるような$\epsilon &gt;0$に対して$\eta$を，$||\eta - \eta_1||&lt;\frac{1}{2}||A||^{-1}\epsilon=:\delta$となるようにとり固定する．ある点$\theta \in \overline{\mbox{ball}}(\theta_1,\epsilon)$について，$\eta = e(\theta)$である．このように定義すればすべての$\eta \in \mbox{ball}(\eta_1, \delta)$はそのオリジナルが$\overline{\mbox{ball}}(\theta_1,\epsilon)$に存在する．$e$が単射であればオリジナルは一意である．よって$V$は開集合であり，$e^{-1}$は$\eta_1$で連続である．</p>
 <p>$\phi(\theta) = \theta + A(\eta- e(\theta))$と定義する．その$\theta$における微分$\phi_{\theta}' = I - A e_{\theta}'$のノルムは$||\phi_{\theta}'||\leq \frac{1}{2}$より$\phi$は$U$上の縮小写像である．さらに$||\theta - \theta_1||\leq \epsilon$とすれば，
-    \begin{eqnarray<em>}
+    \begin{eqnarray}
         || \phi(\theta) - \theta_1|| &amp;\leq &amp; ||\phi(\theta) - \phi(\theta_1)||+||\phi(\theta_1) - \theta_1|| \
         &amp;\leq &amp;\frac{1}{2}||\theta - \theta_1|| + ||A|| ||\eta - \eta_1|| &lt; \epsilon
-    \end{eqnarray</em>}
+    \end{eqnarray}
     となる．従って，$\phi$は$\overline{\mbox{ball}}(\theta_1,\epsilon)$を$\overline{\mbox{ball}}(\theta_1,\epsilon)$自身に写像することが分かる．</p>
 <p>さらに，$\phi$は縮小写像より，不動点定理から$\phi(\theta) = \theta$となるような点$\theta \in \overline{\mbox{ball}}(\theta_1,\epsilon)$を少なくとも一つもつ．不動点$\theta$は，$\phi$の定義から
-    \begin{eqnarray<em>}
+    \begin{eqnarray}
         \theta = \theta + A(\eta - e(\theta))
-    \end{eqnarray</em>}
+    \end{eqnarray}
     より，$e(\theta)=\eta$を満たす．
     このような点$\theta$は一意であることを示す．別の$e(\tilde{\theta}) = \eta$となるような$\phi$の不動点$\tilde{\theta}$があったとする．このとき，
-    \begin{eqnarray<em>}
+    \begin{eqnarray}
         ||\tilde{\theta} - \theta|| = ||\phi(\tilde{\theta}) - \phi(\theta)|| \leq \frac{1}{2}||\tilde{\theta} - \theta||.
-    \end{eqnarray</em>}
+    \end{eqnarray}
     よって$\tilde{\theta} = \theta$である．よって不動点は一意であることが示せた．</p>
 <p>よって$e$は$U$上で単射である．</p>
 <h3>Sources</h3>
 <ul>
-<li>A. W. Van Der Vaart, <em>Asymptotic Statistics</em>, Cambridge University Press</li>
+<li>A. W. Van Der Vaart, Asymptotic Statistics, Cambridge University Press</li>
 </ul>
 
 
