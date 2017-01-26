@@ -11910,7 +11910,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span>tmp <span class="o">&lt;-</span> melt<span class="p">(</span>dt<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">90</span><span class="p">,],</span>id<span class="o">=</span><span class="s">&#39;Date&#39;</span><span class="p">)</span>
@@ -13951,7 +13951,6 @@ AiEQAiEQAiEQAiEQAiEQAiEQAiEQArMg8H+hw8EmkZcmVQAAAABJRU5ErkJggg=="
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>なんとなく日本は高い．</p>
 <p>まず，10期までのVARモデルを推定し，AICでモデル選択を行う．Rなら'vars'パッケージが便利っぽい．</p>
 
 </div>
@@ -13982,7 +13981,7 @@ AiEQAiEQAiEQAiEQAiEQAiEQAiEQArMg8H+hw8EmkZcmVQAAAABJRU5ErkJggg=="
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span>VARselect<span class="p">(</span>dt<span class="p">[,</span><span class="kt">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">)],</span>lag.max<span class="o">=</span><span class="m">10</span><span class="p">)</span>
@@ -14055,7 +14054,7 @@ AiEQAiEQAiEQAiEQAiEQAiEQAiEQArMg8H+hw8EmkZcmVQAAAABJRU5ErkJggg=="
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span>var.model <span class="o">&lt;-</span> VAR<span class="p">(</span>dt<span class="p">[,</span><span class="kt">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">)],</span>p<span class="o">=</span>VARselect<span class="p">(</span>dt<span class="p">[,</span><span class="kt">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">)],</span>lag.max<span class="o">=</span><span class="m">10</span><span class="p">)</span><span class="o">$</span>selection<span class="p">[</span><span class="m">1</span><span class="p">])</span>
@@ -14081,7 +14080,7 @@ AiEQAiEQAiEQAiEQAiEQAiEQAiEQArMg8H+hw8EmkZcmVQAAAABJRU5ErkJggg=="
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span>causality<span class="p">(</span>var.model<span class="p">,</span>cause<span class="o">=</span><span class="s">&#39;us&#39;</span><span class="p">)</span>
@@ -14128,17 +14127,43 @@ Chi-squared = 271.69, df = 2, p-value &lt; 2.2e-16
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>p値は0.05以下であり，USからJP, UKへのグレンジャー因果性が存在すると言える．</p>
+<p>$Grangerの方が先ほど説明したF検定によるグレンジャー因果性の検定である．
+p値は0.05以下であり，USからJP, UKへのグレンジャー因果性が存在すると言える．</p>
+<p>$Instantの方はヘルプを見ると
+''
+a Wald-type test that is characterized by testing for nonzero correlation between the error processes of the cause and effect variables.
+''
+とのこと．とりあえず今回はあまり気にしないことにする．</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>6通りの組み合わせでグレンジャー因果性の検定をしてみる．（多重比較なので検定としてはよろしくないですがまぁとりあえずということで）</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span>causality<span class="p">(</span>var.model<span class="p">,</span>cause<span class="o">=</span><span class="s">&#39;uk&#39;</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span>var.model <span class="o">&lt;-</span> VAR<span class="p">(</span>dplyr<span class="o">::</span>select<span class="p">(</span>dt<span class="p">,</span>us<span class="p">,</span>jp<span class="p">),</span>p<span class="o">=</span>VARselect<span class="p">(</span>dplyr<span class="o">::</span>select<span class="p">(</span>dt<span class="p">,</span>us<span class="p">,</span>jp<span class="p">),</span>lag.max<span class="o">=</span><span class="m">10</span><span class="p">)</span><span class="o">$</span>selection<span class="p">[</span><span class="m">1</span><span class="p">])</span>
+causality<span class="p">(</span>var.model<span class="p">,</span>cause<span class="o">=</span><span class="s">&#39;jp&#39;</span><span class="p">)</span><span class="o">$</span>Granger
+causality<span class="p">(</span>var.model<span class="p">,</span>cause<span class="o">=</span><span class="s">&#39;us&#39;</span><span class="p">)</span><span class="o">$</span>Granger
+
+var.model <span class="o">&lt;-</span> VAR<span class="p">(</span>dplyr<span class="o">::</span>select<span class="p">(</span>dt<span class="p">,</span>uk<span class="p">,</span>jp<span class="p">),</span>p<span class="o">=</span>VARselect<span class="p">(</span>dplyr<span class="o">::</span>select<span class="p">(</span>dt<span class="p">,</span>us<span class="p">,</span>jp<span class="p">),</span>lag.max<span class="o">=</span><span class="m">10</span><span class="p">)</span><span class="o">$</span>selection<span class="p">[</span><span class="m">1</span><span class="p">])</span>
+causality<span class="p">(</span>var.model<span class="p">,</span>cause<span class="o">=</span><span class="s">&#39;jp&#39;</span><span class="p">)</span><span class="o">$</span>Granger
+causality<span class="p">(</span>var.model<span class="p">,</span>cause<span class="o">=</span><span class="s">&#39;uk&#39;</span><span class="p">)</span><span class="o">$</span>Granger
+
+var.model <span class="o">&lt;-</span> VAR<span class="p">(</span>dplyr<span class="o">::</span>select<span class="p">(</span>dt<span class="p">,</span>us<span class="p">,</span>uk<span class="p">),</span>p<span class="o">=</span>VARselect<span class="p">(</span>dplyr<span class="o">::</span>select<span class="p">(</span>dt<span class="p">,</span>us<span class="p">,</span>jp<span class="p">),</span>lag.max<span class="o">=</span><span class="m">10</span><span class="p">)</span><span class="o">$</span>selection<span class="p">[</span><span class="m">1</span><span class="p">])</span>
+causality<span class="p">(</span>var.model<span class="p">,</span>cause<span class="o">=</span><span class="s">&#39;uk&#39;</span><span class="p">)</span><span class="o">$</span>Granger
+causality<span class="p">(</span>var.model<span class="p">,</span>cause<span class="o">=</span><span class="s">&#39;us&#39;</span><span class="p">)</span><span class="o">$</span>Granger
 </pre></div>
 
 </div>
@@ -14153,96 +14178,81 @@ Chi-squared = 271.69, df = 2, p-value &lt; 2.2e-16
 
 
 <div class="output_text output_subarea ">
-<pre>$Granger
-
-	Granger causality H0: uk do not Granger-cause jp us
-
-data:  VAR object var.model
-F-Test = 11.155, df1 = 6, df2 = 4134, p-value = 2.203e-12
-
-
-$Instant
-
-	H0: No instantaneous causality between: uk and jp us
-
-data:  VAR object var.model
-Chi-squared = 285.8, df = 2, p-value &lt; 2.2e-16
-
-</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span>UK市場から他国へのグレンジャー因果性は存在する．
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_error">
 <pre>
-Error in parse(text = x, srcfile = src): &lt;text&gt;:1:2: unexpected input
-1: UK市場から他国へのグレンジャー因果性は存在する&lt;ef&gt;
-     ^
-Traceback:
+	Granger causality H0: jp do not Granger-cause us
+
+data:  VAR object var.model
+F-Test = 0.1755, df1 = 4, df2 = 2756, p-value = 0.9511
 </pre>
 </div>
-</div>
 
 </div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span>causality<span class="p">(</span>var.model<span class="p">,</span>cause<span class="o">=</span><span class="s">&#39;jp&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
 
 <div class="output_area"><div class="prompt"></div>
 
 
 <div class="output_text output_subarea ">
-<pre>$Granger
-
-	Granger causality H0: jp do not Granger-cause uk us
-
-data:  VAR object var.model
-F-Test = 0.76183, df1 = 6, df2 = 4134, p-value = 0.5999
-
-
-$Instant
-
-	H0: No instantaneous causality between: jp and uk us
+<pre>
+	Granger causality H0: us do not Granger-cause jp
 
 data:  VAR object var.model
-Chi-squared = 37.704, df = 2, p-value = 6.496e-09
+F-Test = 86.058, df1 = 4, df2 = 2756, p-value &lt; 2.2e-16
+</pre>
+</div>
 
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>
+	Granger causality H0: jp do not Granger-cause uk
+
+data:  VAR object var.model
+F-Test = 0.41866, df1 = 4, df2 = 2756, p-value = 0.7953
+</pre>
+</div>
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>
+	Granger causality H0: uk do not Granger-cause jp
+
+data:  VAR object var.model
+F-Test = 58.997, df1 = 4, df2 = 2756, p-value &lt; 2.2e-16
+</pre>
+</div>
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>
+	Granger causality H0: uk do not Granger-cause us
+
+data:  VAR object var.model
+F-Test = 0.8883, df1 = 4, df2 = 2756, p-value = 0.47
+</pre>
+</div>
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>
+	Granger causality H0: us do not Granger-cause uk
+
+data:  VAR object var.model
+F-Test = 60.367, df1 = 4, df2 = 2756, p-value &lt; 2.2e-16
 </pre>
 </div>
 
@@ -14257,7 +14267,7 @@ Chi-squared = 37.704, df = 2, p-value = 6.496e-09
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>p値は0.5999であり，日本市場は他国にグレンジャー因果bの意味で影響を与えていない．</p>
+<p>グレンジャー因果でないという帰無仮説が棄却されたのは2,4,6番目．</p>
 
 </div>
 </div>
@@ -14268,8 +14278,8 @@ Chi-squared = 37.704, df = 2, p-value = 6.496e-09
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>以上から，グレンジャー因果効果が存在すると判断されたのは</p>
+<p>US $\rightarrow$ JP,</p>
 <p>UK $\rightarrow$ JP,</p>
-<p>US $\rightarrow$ JP</p>
 <p>US $\rightarrow$ UK</p>
 <p>得られた知見としては，例えば</p>
 <ol>
@@ -14281,19 +14291,6 @@ Chi-squared = 37.704, df = 2, p-value = 6.496e-09
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
 </div>
     </div>
   </div>
